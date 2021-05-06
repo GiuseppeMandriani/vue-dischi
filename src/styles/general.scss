@@ -11,6 +11,15 @@
 }
 
 body {
+    height: 100vh;
     font-family: $main-font;
-    color: $primary-color;
+    color: #65d36c;
+    background-image: linear-gradient(
+        to bottom,
+        #2e3a46 0px,
+        #2e3a46 70px,
+        #1d2d3c 70px,
+        #1d2d3c 100%
+    );
+    background-size: 70px 100%;
 }
