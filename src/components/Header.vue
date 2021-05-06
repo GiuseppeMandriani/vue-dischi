@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="container">
         <!-- Logo -->
         <div class="logo">
             <img src="@/assets/logo.png" alt="Logo Spotify" />
@@ -21,9 +21,10 @@ export default {
 .logo {
     display: flex;
     align-items: center;
-    padding: 10px 10px;
+    height: 70px;
+    /* padding: 10px 10px; */
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-left: 1rem;
         font-weight: 400;
         letter-spacing: 2px;

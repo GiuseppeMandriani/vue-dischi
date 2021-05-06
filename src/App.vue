@@ -1,15 +1,23 @@
 <template>
     <div id="app">
+        <!-- Header -->
         <Header message="Dischi del Mese" />
+
+        <!-- Main -->
+        <main>
+            <ListCardDisc />
+        </main>
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
+import ListCardDisc from '@/components/ListCardDisc.vue';
 export default {
     name: 'App',
     components: {
         Header,
+        ListCardDisc,
     },
 };
 </script>

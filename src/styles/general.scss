@@ -2,7 +2,7 @@
 
 @import './vars.scss';
 
-// GENREAL
+// GENEREAL
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@
 body {
     height: 100vh;
     font-family: $main-font;
-    color: #65d36c;
+    color: #fff;
     background-image: linear-gradient(
         to bottom,
         #2e3a46 0px,
@@ -22,4 +22,12 @@ body {
         #1d2d3c 100%
     );
     background-size: 70px 100%;
+}
+
+// UTILITIES
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
