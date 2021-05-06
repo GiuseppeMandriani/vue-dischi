@@ -64,6 +64,7 @@ export default {
     flex-wrap: wrap;
     padding-top: 100px;
     padding-bottom: 15px;
+    flex-shrink: 0;
 
     .card {
         flex-basis: calc(100% / 8 - 1rem);
@@ -72,6 +73,17 @@ export default {
         margin-bottom: 1rem;
         padding: 20px 15px;
         background-color: $secondary-color;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .row .card {
+        flex-basis: calc(100% / 6 - 1rem);
+    }
+}
+@media screen and (max-width: 768px) {
+    .row .card {
+        flex-basis: calc(100% / 4 - 1rem);
     }
 }
 </style>
