@@ -1,0 +1,16 @@
+// Importo Vars cosi ho accesso alle variabili
+
+@import './vars.scss';
+
+// GENREAL
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $main-font;
+    color: $primary-color;
+}
