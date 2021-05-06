@@ -1,13 +1,16 @@
 <template>
     <div class="loader">
-        <img src="@/assets/logo.png" alt="Logo Spotify" />
-        <div class="text">Caricamento...</div>
+        <slot></slot>
+        <div class="text">{{ label }}</div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Loader',
+    props: {
+        label: String,
+    },
 };
 </script>
 
@@ -27,11 +30,12 @@ export default {
     .text {
         text-transform: uppercase;
         color: rgba($brand-color, 0.5);
+        letter-spacing: 5px;
     }
 }
 img {
     width: 70px;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     animation: pulse 1s infinite alternate;
 }
 

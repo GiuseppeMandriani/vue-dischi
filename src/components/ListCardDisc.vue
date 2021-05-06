@@ -5,7 +5,9 @@
                 <Card :details="disc" />
             </div>
         </div>
-        <Loader v-else />
+        <Loader v-else label="Loading...">
+            <img src="@/assets/logo.png" alt="Logo Spotify" />
+        </Loader>
     </section>
 </template>
 
@@ -56,6 +58,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/vars';
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -68,7 +71,7 @@ export default {
         margin: 0 0.5rem;
         margin-bottom: 1rem;
         padding: 20px 15px;
-        background-color: #2e3a46;
+        background-color: $secondary-color;
     }
 }
 </style>
