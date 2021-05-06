@@ -1,21 +1,24 @@
 <template>
     <section class="card container">
-        <div class="row">
-            <div class="card">
-                <Card />
+        <div v-if="!loading" class="row">
+            <div v-for="(disc, index) in discList" :key="index" class="card">
+                <Card :details="disc" />
             </div>
         </div>
+        <Loader v-else />
     </section>
 </template>
 
 <script>
 import axios from 'axios'; // Importo Axios per API
 import Card from '@/components/Card.vue';
+import Loader from '@/components/Loader.vue';
 
 export default {
     name: 'ListCardDisc',
     components: {
         Card,
+        Loader,
     },
 
     data() {
@@ -35,16 +38,18 @@ export default {
             /**
              * Chiamata API
              */
-            axios
-                .get(this.apiURL)
-                .then(result => {
-                    console.log(result.data);
-                    this.discList = result.data;
-                    this.loading = false;
-                })
-                .catch(error => {
-                    console.log('Errore', error);
-                });
+            setTimeout(() => {
+                axios
+                    .get(this.apiURL)
+                    .then(result => {
+                        this.discList = result.data.response;
+                        this.loading = false;
+                        console.log(result.data.response);
+                    })
+                    .catch(error => {
+                        console.log('Errore', error);
+                    });
+            }, 2000);
         },
     },
 };
@@ -58,9 +63,12 @@ export default {
     padding-bottom: 15px;
 
     .card {
-        flex-basis: calc(100% / 8 - 2rem);
-        height: 250px;
-        margin: 0 1rem;
+        flex-basis: calc(100% / 8 - 1rem);
+
+        margin: 0 0.5rem;
+        margin-bottom: 1rem;
+        padding: 20px 15px;
+        background-color: #2e3a46;
     }
 }
 </style>
