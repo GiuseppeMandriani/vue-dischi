@@ -65,9 +65,12 @@ export default {
     padding-top: 100px;
     padding-bottom: 15px;
     flex-shrink: 0;
+    justify-content: center;
+    max-width: 100%;
 
     .card {
         flex-basis: calc(100% / 8 - 1rem);
+        max-width: 100%;
 
         margin: 0 0.5rem;
         margin-bottom: 1rem;
