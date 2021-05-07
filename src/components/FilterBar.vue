@@ -1,10 +1,17 @@
 <template>
     <section>
         <div class="search">
-            <label for="type">Filtra in base al tipo</label>
+            <label for="type"></label>
             <div class="wrap-select">
                 <select name="type" id="type">
-                    <option value="all">All</option>
+                    <option
+                        v-for="(disc, index) in getDisc"
+                        :key="index"
+                        :value="'all' + disc"
+                        @change="$emit('filter')"
+                        >{{ disc }}</option
+                    >
+                    >
                 </select>
             </div>
         </div>
@@ -14,6 +21,31 @@
 <script>
 export default {
     name: 'FilterBar',
+    props: {
+        details: Array,
+    },
+    data() {
+        return {
+            options: '',
+            generi: ['All'],
+            type: null,
+        };
+    },
+
+    computed: {
+        getDisc() {
+            this.details.forEach(genre => {
+                this.type = genre.genre;
+                if (!this.generi.includes(this.type)) {
+                    this.generi.push(this.type);
+                    this.options += genre.genre;
+                }
+            });
+            console.log(this.generi);
+            console.log(this.options);
+            return this.generi;
+        },
+    },
 };
 </script>
 

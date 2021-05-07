@@ -2,7 +2,7 @@
     <section class="container">
         <div v-if="!loading">
             <div class="filter">
-                <FilterBar />
+                <FilterBar :details="discList" @filter="searchDisc" />
             </div>
             <div class="row">
                 <div
@@ -63,6 +63,10 @@ export default {
                         console.log('Errore', error);
                     });
             }, 2000);
+        },
+
+        searchDisc() {
+            console.log('ok');
         },
     },
 };

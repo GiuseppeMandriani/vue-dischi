@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/vars.scss';
 .card-content {
     height: 100%;
 }
