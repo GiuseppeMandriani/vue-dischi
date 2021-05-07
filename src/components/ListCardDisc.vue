@@ -1,8 +1,17 @@
 <template>
-    <section class="card container">
-        <div v-if="!loading" class="row">
-            <div v-for="(disc, index) in discList" :key="index" class="card">
-                <Card :details="disc" />
+    <section class="container">
+        <div v-if="!loading">
+            <div class="filter">
+                <FilterBar />
+            </div>
+            <div class="row">
+                <div
+                    v-for="(disc, index) in discList"
+                    :key="index"
+                    class="card"
+                >
+                    <Card :details="disc" />
+                </div>
             </div>
         </div>
         <Loader v-else label="Loading...">
@@ -15,12 +24,14 @@
 import axios from 'axios'; // Importo Axios per API
 import Card from '@/components/Card.vue';
 import Loader from '@/components/Loader.vue';
+import FilterBar from '@/components/FilterBar.vue';
 
 export default {
     name: 'ListCardDisc',
     components: {
         Card,
         Loader,
+        FilterBar,
     },
 
     data() {
@@ -59,10 +70,15 @@ export default {
 
 <style scoped lang="scss">
 @import '@/styles/vars';
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+} */
 .row {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 100px;
+    padding-top: 30px;
     padding-bottom: 15px;
     flex-shrink: 0;
     justify-content: center;
